@@ -5,7 +5,7 @@ import java.awt.Color;
 // API help : http://robocode.sourceforge.net/docs/robocode/robocode/Robot.html
 
 /**
- * TheGladiator - a robot by (your name here)
+ * TheGladiator - a robot by Matt Marra and Sonia Carrillo
  */
 public class TheGladiator extends Robot
 {
