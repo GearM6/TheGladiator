@@ -25,11 +25,12 @@ public class TheGladiator extends Robot
 		// Robot main loop
 		while(true) {
 			// Replace the next 4 lines with any behavior you would like
-			ahead(30);
-			turnRight(40);
-			turnGunRight(360);
+			ahead(90);
+			turnRight(90);
+			//turnGunRight(360);
+			turnRight(90);
 			back(100);
-			turnGunRight(360);
+			//turnGunRight(360);
 		}
 	}
 
@@ -44,22 +45,43 @@ public class TheGladiator extends Robot
 		else{
 			turnRight(degrees);
 		}
-		ahead(20);
-		// Replace the next line with any behavior you would like
+		ahead(50);
+		fire(2);
+		scan();
+		
+		//moves forward and shoots and checks again for the other robot
 	}
 	
 	public void onHitRobot(HitRobotEvent e){
-		fire(5);
-		back(200);
+		if(e.getBearing()<= 90 && e.getBearing()> -90)
+		{
+			
+			back(200);
+			turnLeft(90);
+		}
+		else
+		{
+			
+			ahead(100);
+			turnLeft(90);
+		}
 	}
 
 	/**
 	 * onHitByBullet: What to do when you're hit by a bullet
 	 */
 	public void onHitByBullet(HitByBulletEvent e) {
-		// Replace the next line with any behavior you would like
-		turnLeft(50);
-		ahead(getRoundNum()*4.5);
+		//finds which direction the bullet hit it from and moves away from that area
+		if(e.getBearing()<=90 && e.getBearing()> -90) 
+		{	
+			turnLeft(90);
+			back(getRoundNum()*4.5);
+		}
+		else
+		{
+			turnLeft(90);
+			ahead(getRoundNum()*4.5);
+		}
 	}
 
 	/**
